@@ -9,9 +9,6 @@ class TweenAnimationBuilderWithChildView extends StatefulWidget {
 }
 
 int animationKey = 0;
-bool inTheEnd = false;
-bool inTheStart = false;
-
 double begin = 100;
 double end = 300;
 
@@ -33,16 +30,10 @@ class _TweenAnimationBuilderViewState
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
                   Flexible(
-                    child: Text(
-                      "This is The First Line",
-                      style: TextStyle(fontSize: 20),
-                    ),
+                    child: Text("First Line", style: TextStyle(fontSize: 20)),
                   ),
                   Flexible(
-                    child: Text(
-                      "This is The Second Line",
-                      style: TextStyle(fontSize: 20),
-                    ),
+                    child: Text("Second Line", style: TextStyle(fontSize: 20)),
                   ),
                 ],
               ),
