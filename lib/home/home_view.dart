@@ -18,23 +18,6 @@ class HomeView extends StatelessWidget {
         ),
         itemCount: animations.length,
         itemBuilder: (context, index) {
-          // return GestureDetector(
-          //   onTap: () {
-          //     Navigator.push(
-          //       context,
-          //       MaterialPageRoute(builder: (context) => animations[index]),
-          //     );
-          //   },
-          //   child: Container(
-          //     color: Colors.amber,
-          //     child: Center(
-          //       child: Text(
-          //         "Animated Foo",
-          //         style: TextStyle(color: Colors.black, fontSize: 20),
-          //       ),
-          //     ),
-          //   ),
-          // );
           return Card(title: titles[index], screen: animations[index]);
         },
       ),
