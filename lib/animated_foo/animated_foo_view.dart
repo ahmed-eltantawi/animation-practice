@@ -32,7 +32,7 @@ class _AnimatedFooState extends State<AnimatedFoo> {
     return ElevatedButton(
       onPressed: () {
         if (_direction == 100) {
-          _direction = 200;
+          _direction = 220;
         } else {
           _direction = 100;
         }
