@@ -28,6 +28,8 @@ class _TweenAnimationBuilderViewState
                 return Text(value.toString(), style: TextStyle(fontSize: 60));
               },
             ),
+
+            // button to trigger the animation
             ElevatedButton(
               onPressed: () {
                 setState(() {
