@@ -1,5 +1,4 @@
 import 'package:animation_practise/animated_foo/custom_animated_container.dart';
-import 'package:animation_practise/animated_foo/custom_button.dart';
 import 'package:flutter/material.dart';
 
 class AnimatedFoo extends StatefulWidget {
