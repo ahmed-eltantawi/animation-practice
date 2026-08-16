@@ -1,4 +1,5 @@
 import 'package:animation_practise/animated_foo/animated_foo_view.dart';
+import 'package:animation_practise/home/home_view.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -10,6 +11,10 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(home: AnimatedFoo());
+    return MaterialApp(
+      home: HomeView(),
+
+      //  AnimatedFoo()
+    );
   }
 }
