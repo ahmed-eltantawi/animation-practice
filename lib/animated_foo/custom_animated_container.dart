@@ -7,7 +7,7 @@ class CustomAnimatedContainer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AnimatedContainer(
-      curve: Curves.fastOutSlowIn,
+      curve: Curves.easeInOutQuint,
       duration: Duration(seconds: 1),
       height: direction,
       width: direction,
