@@ -1,5 +1,6 @@
 import 'package:animation_practise/animated_foo/animated_foo_view.dart';
 import 'package:animation_practise/tween_animation_builder/tween_animation_builder_view.dart';
+import 'package:animation_practise/tween_animation_builder/tween_animation_builder_with_child_view.dart';
 import 'package:flutter/material.dart';
 
 class HomeView extends StatelessWidget {
@@ -7,8 +8,13 @@ class HomeView extends StatelessWidget {
   final List<Widget> animations = const [
     AnimatedFoo(),
     TweenAnimationBuilderView(),
+    TweenAnimationBuilderWithChildView(),
   ];
-  final List<String> titles = const ["Animated Foo", "Tween Animation Builder"];
+  final List<String> titles = const [
+    "Animated Foo",
+    "Tween Animation Builder",
+    "Tween Animation Builder With Child",
+  ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
