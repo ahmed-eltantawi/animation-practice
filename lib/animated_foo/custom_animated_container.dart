@@ -6,12 +6,19 @@ class CustomAnimatedContainer extends StatelessWidget {
   final Color color;
   @override
   Widget build(BuildContext context) {
-    return AnimatedContainer(
+    return TweenAnimationBuilder(
       curve: Curves.easeInOutQuint,
       duration: Duration(seconds: 1),
-      height: direction,
-      width: direction,
-      color: color,
+      tween: Tween<double>(begin: 100, end: direction),
+      builder: (context, value, child) =>
+          Container(height: direction, width: direction, color: color),
     );
   }
+}
+
+class MyClass<T> {
+  final T begging;
+  final T end;
+
+  MyClass({required this.begging, required this.end});
 }
