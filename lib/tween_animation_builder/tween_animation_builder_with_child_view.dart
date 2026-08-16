@@ -22,10 +22,14 @@ class _TweenAnimationBuilderViewState
             TweenAnimationBuilder(
               key: ValueKey(animationKey),
               curve: Curves.easeOutCirc,
-              tween: IntTween(begin: 0, end: 100),
+              tween: Tween<double>(begin: 100, end: 300),
               duration: const Duration(seconds: 2),
               builder: (context, value, child) {
-                return Container(child: Column(children: []));
+                return SizedBox(
+                  height: value,
+                  width: value,
+                  child: Column(children: []),
+                );
               },
             ),
 
