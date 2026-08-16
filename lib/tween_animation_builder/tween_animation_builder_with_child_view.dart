@@ -24,28 +24,29 @@ class _TweenAnimationBuilderViewState
               curve: Curves.easeInOutBack,
               tween: Tween<double>(begin: 100, end: 300),
               duration: const Duration(seconds: 2),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  Flexible(
+                    child: Text(
+                      "This is The First Line",
+                      style: TextStyle(fontSize: 20),
+                    ),
+                  ),
+                  Flexible(
+                    child: Text(
+                      "This is The Second Line",
+                      style: TextStyle(fontSize: 20),
+                    ),
+                  ),
+                ],
+              ),
               builder: (context, value, child) {
                 return Container(
                   color: Colors.tealAccent,
                   height: value,
                   width: value,
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    children: [
-                      Flexible(
-                        child: Text(
-                          "This is The First Line",
-                          style: TextStyle(fontSize: 20),
-                        ),
-                      ),
-                      Flexible(
-                        child: Text(
-                          "This is The Second Line",
-                          style: TextStyle(fontSize: 20),
-                        ),
-                      ),
-                    ],
-                  ),
+                  child: child,
                 );
               },
             ),
