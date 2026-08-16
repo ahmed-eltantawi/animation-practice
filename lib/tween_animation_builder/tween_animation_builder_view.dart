@@ -6,12 +6,19 @@ class TweenAnimationBuilderView extends StatelessWidget {
   @override
   @override
   Widget build(BuildContext context) {
-    return TweenAnimationBuilder<double>(
-      tween: Tween(begin: 0, end: 100),
-      duration: const Duration(seconds: 1),
-      builder: (context, value, child) {
-        return SizedBox(width: 100, height: 100, child: Text(value.toString()));
-      },
+    return Scaffold(
+      body: Center(
+        child: TweenAnimationBuilder<double>(
+          tween: Tween(begin: 0, end: 100),
+          duration: const Duration(seconds: 1),
+          builder: (context, value, child) {
+            return Text(
+              value.toString().substring(0, 3),
+              style: TextStyle(fontSize: 60),
+            );
+          },
+        ),
+      ),
     );
   }
 }
