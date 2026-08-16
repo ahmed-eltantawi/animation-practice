@@ -18,13 +18,10 @@ class _AnimatedFooState extends State<AnimatedFoo> {
     return Scaffold(
       body: Center(
         child: Column(
-          mainAxisAlignment: .spaceBetween,
+          mainAxisAlignment: .spaceAround,
           children: [
-            SizedBox(height: 100),
             CustomAnimatedContainer(direction: _direction, color: _color),
-            Spacer(),
             customButton(),
-            SizedBox(height: 100),
           ],
         ),
       ),
