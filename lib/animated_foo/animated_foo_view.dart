@@ -11,6 +11,7 @@ class AnimatedFoo extends StatefulWidget {
 
 class _AnimatedFooState extends State<AnimatedFoo> {
   double _direction = 100;
+  Color _color = Colors.red;
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +21,7 @@ class _AnimatedFooState extends State<AnimatedFoo> {
           mainAxisAlignment: .spaceBetween,
           children: [
             SizedBox(height: 100),
-            CustomAnimatedContainer(direction: _direction),
+            CustomAnimatedContainer(direction: _direction, color: _color),
             Spacer(),
             customButton(),
             SizedBox(height: 100),
@@ -38,6 +39,7 @@ class _AnimatedFooState extends State<AnimatedFoo> {
         } else {
           _direction = 100;
         }
+        _color == Colors.red ? _color = Colors.green : _color = Colors.red;
         setState(() {});
       },
       child: const Text('Start Animation'),
