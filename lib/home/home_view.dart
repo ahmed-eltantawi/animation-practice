@@ -22,8 +22,13 @@ class HomeView extends StatelessWidget {
               );
             },
             child: Container(
-              color: Colors.redAccent,
-              child: Text("Animated Foo"),
+              color: Colors.amber,
+              child: Center(
+                child: Text(
+                  "Animated Foo",
+                  style: TextStyle(color: Colors.black, fontSize: 20),
+                ),
+              ),
             ),
           );
         },
