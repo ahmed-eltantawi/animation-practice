@@ -9,6 +9,11 @@ class TweenAnimationBuilderWithChildView extends StatefulWidget {
 }
 
 int animationKey = 0;
+bool inTheEnd = false;
+bool inTheStart = false;
+
+double begin = 100;
+double end = 300;
 
 class _TweenAnimationBuilderViewState
     extends State<TweenAnimationBuilderWithChildView> {
@@ -22,7 +27,7 @@ class _TweenAnimationBuilderViewState
             TweenAnimationBuilder(
               key: ValueKey(animationKey),
               curve: Curves.easeInOutBack,
-              tween: Tween<double>(begin: 100, end: 300),
+              tween: Tween<double>(begin: begin, end: end),
               duration: const Duration(seconds: 2),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -42,6 +47,13 @@ class _TweenAnimationBuilderViewState
                 ],
               ),
               builder: (context, value, child) {
+                if (value == 300) {
+                  begin = 300;
+                  end = 100;
+                } else if (value == 100) {
+                  begin = 100;
+                  end = 300;
+                }
                 return Container(
                   color: Colors.tealAccent,
                   height: value,
