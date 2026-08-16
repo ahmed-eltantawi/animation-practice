@@ -25,7 +25,7 @@ class _TweenAnimationBuilderViewState
               tween: IntTween(begin: 0, end: 100),
               duration: const Duration(seconds: 2),
               builder: (context, value, child) {
-                return Text(value.toString(), style: TextStyle(fontSize: 60));
+                return Container(child: Column(children: []));
               },
             ),
 
