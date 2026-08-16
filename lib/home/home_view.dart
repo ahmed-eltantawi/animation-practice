@@ -1,18 +1,32 @@
+import 'package:animation_practise/animated_foo/animated_foo_view.dart';
 import 'package:flutter/material.dart';
 
 class HomeView extends StatelessWidget {
   const new({super.key});
+  final List<Widget> animations = const [AnimatedFoo()];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: GridView.custom(
+      body: GridView.builder(
         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
           crossAxisCount: 2,
         ),
-        childrenDelegate: SliverChildBuilderDelegate(
-          (context, index) => Container(color: Colors.red),
-        ),
+        itemCount: animations.length,
+        itemBuilder: (context, index) {
+          return GestureDetector(
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => animations[index]),
+              );
+            },
+            child: Container(
+              color: Colors.redAccent,
+              child: Text("Animated Foo"),
+            ),
+          );
+        },
       ),
     );
   }
