@@ -11,10 +11,6 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: HomeView(),
-
-      //  AnimatedFoo()
-    );
+    return MaterialApp(home: HomeView());
   }
 }
