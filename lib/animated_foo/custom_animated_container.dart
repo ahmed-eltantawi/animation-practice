@@ -7,11 +7,14 @@ class CustomAnimatedContainer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AnimatedContainer(
+      decoration: BoxDecoration(
+        color: color,
+        borderRadius: BorderRadius.circular(30),
+      ),
       curve: Curves.easeInOutQuint,
       duration: Duration(seconds: 1),
       height: direction,
       width: direction,
-      color: color,
     );
   }
 }

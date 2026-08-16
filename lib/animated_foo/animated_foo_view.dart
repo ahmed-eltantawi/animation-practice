@@ -11,7 +11,7 @@ class AnimatedFoo extends StatefulWidget {
 
 class _AnimatedFooState extends State<AnimatedFoo> {
   double _direction = 100;
-  Color _color = Colors.red;
+  Color _color = Colors.green;
 
   @override
   Widget build(BuildContext context) {
