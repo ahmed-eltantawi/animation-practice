@@ -6,6 +6,7 @@ class AnimatedFoo extends StatefulWidget {
   const new({super.key});
 
   @override
+  @override
   State<AnimatedFoo> createState() => _AnimatedFooState();
 }
 
