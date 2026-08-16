@@ -25,10 +25,16 @@ class _TweenAnimationBuilderViewState
               tween: Tween<double>(begin: 100, end: 300),
               duration: const Duration(seconds: 2),
               builder: (context, value, child) {
-                return SizedBox(
+                return Container(
+                  color: Colors.tealAccent,
                   height: value,
                   width: value,
-                  child: Column(children: []),
+                  child: Column(
+                    children: [
+                      Text("This is The First Line"),
+                      Text("This is The Second Line"),
+                    ],
+                  ),
                 );
               },
             ),
