@@ -72,27 +72,34 @@ class _FooTransitionWidgetsState extends State<FooTransitionWidgets>
         ),
         ElevatedButton(
           onPressed: () {
-            _controller.reverse();
-          },
-          child: const Text("Reverse"),
-        ),
-        ElevatedButton(
-          onPressed: () {
-            _controller.repeat();
-          },
-          child: const Text("Repeat"),
-        ),
-        ElevatedButton(
-          onPressed: () {
             _controller.stop();
           },
           child: const Text("Stop"),
         ),
         ElevatedButton(
           onPressed: () {
+            _controller.reverse();
+          },
+          child: const Text("Reverse"),
+        ),
+
+        ElevatedButton(
+          onPressed: () {
             _controller.reset();
           },
           child: const Text("Reset"),
+        ),
+        ElevatedButton(
+          onPressed: () {
+            _controller.repeat();
+          },
+          child: const Text("Repeat without reverse"),
+        ),
+        ElevatedButton(
+          onPressed: () {
+            _controller.repeat(reverse: true);
+          },
+          child: const Text("Repeat with reverse"),
         ),
       ],
     );
