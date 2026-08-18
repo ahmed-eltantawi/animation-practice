@@ -35,7 +35,15 @@ class _FooTransitionWidgetsState extends State<FooTransitionWidgets>
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(body: _stackWidget());
+    return Scaffold(
+      body: Column(
+        children: [
+          Expanded(child: _stackWidget()),
+          _buttons(),
+          const SizedBox(height: 40),
+        ],
+      ),
+    );
   }
 
   Stack _stackWidget() {
@@ -48,6 +56,43 @@ class _FooTransitionWidgetsState extends State<FooTransitionWidgets>
         AlignTransition(
           alignment: _redAnimation,
           child: CircleAvatar(radius: 50, backgroundColor: Colors.red),
+        ),
+      ],
+    );
+  }
+
+  Widget _buttons() {
+    return Wrap(
+      children: [
+        ElevatedButton(
+          onPressed: () {
+            _controller.forward();
+          },
+          child: const Text("Forward"),
+        ),
+        ElevatedButton(
+          onPressed: () {
+            _controller.reverse();
+          },
+          child: const Text("Reverse"),
+        ),
+        ElevatedButton(
+          onPressed: () {
+            _controller.repeat();
+          },
+          child: const Text("Repeat"),
+        ),
+        ElevatedButton(
+          onPressed: () {
+            _controller.stop();
+          },
+          child: const Text("Stop"),
+        ),
+        ElevatedButton(
+          onPressed: () {
+            _controller.reset();
+          },
+          child: const Text("Reset"),
         ),
       ],
     );
