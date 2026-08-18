@@ -14,13 +14,16 @@ class CustomCardWidget extends StatelessWidget {
           MaterialPageRoute(builder: (context) => screen),
         );
       },
-      child: Container(
-        color: Colors.amber,
-        child: Center(
-          child: Text(
-            title,
-            textAlign: .center,
-            style: TextStyle(color: Colors.black, fontSize: 20),
+      child: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Container(
+          color: Colors.amber,
+          child: Center(
+            child: Text(
+              title,
+              textAlign: .center,
+              style: TextStyle(color: Colors.black, fontSize: 20),
+            ),
           ),
         ),
       ),
