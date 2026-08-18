@@ -19,18 +19,31 @@ class _FooTransitionWidgetsState extends State<FooTransitionWidgets>
 
     _controller = AnimationController(
       vsync: this,
-      duration: const Duration(seconds: 1),
-      reverseDuration: const Duration(seconds: 4),
+      duration: const Duration(seconds: 5),
+      reverseDuration: const Duration(seconds: 1),
     );
 
-    _greenAnimation = Tween<AlignmentGeometry>(
-      begin: Alignment.topCenter,
-      end: Alignment.bottomCenter,
-    ).animate(_controller);
+    _greenAnimation =
+        Tween<AlignmentGeometry>(
+          begin: Alignment.topCenter,
+          end: Alignment.bottomCenter,
+        ).animate(
+          CurvedAnimation(
+            parent: _controller,
+            curve: Curves.bounceIn,
+            reverseCurve: Curves.bounceOut,
+          ),
+        );
     _redAnimation = Tween<AlignmentGeometry>(
       begin: Alignment.centerLeft,
       end: Alignment.centerRight,
-    ).animate(_controller);
+    ).animate(CurvedAnimation(parent: _controller, curve: Curves.easeInOut));
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
   }
 
   @override
