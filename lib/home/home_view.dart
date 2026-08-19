@@ -1,4 +1,5 @@
 import 'package:animation_practise/animated_foo/animated_foo_view.dart';
+import 'package:animation_practise/foo_transition_widgets%20two/foo_transition_widgets.dart';
 import 'package:animation_practise/foo_transition_widgets/foo_transition_widgets.dart';
 import 'package:animation_practise/home/custom_card_widget.dart';
 import 'package:animation_practise/tween_animation_builder/tween_animation_builder_view.dart';
@@ -12,12 +13,14 @@ class HomeView extends StatelessWidget {
     TweenAnimationBuilderView(),
     TweenAnimationBuilderWithChildView(),
     FooTransitionWidgets(),
+    FooTransitionWidgetsTwo(),
   ];
   final List<String> titles = const [
     "Animated Foo",
     "Tween Animation Builder",
     "Tween Animation Builder With Child",
     "Foo Transition Widgets",
+    "Foo Transition Widgets two",
   ];
   @override
   Widget build(BuildContext context) {

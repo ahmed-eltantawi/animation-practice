@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-class FooTransitionWidgets extends StatefulWidget {
+class FooTransitionWidgetsTwo extends StatefulWidget {
   const new({super.key});
 
   @override
-  State<FooTransitionWidgets> createState() => _FooTransitionWidgetsState();
+  State<FooTransitionWidgetsTwo> createState() => _FooTransitionWidgetsState();
 }
 
-class _FooTransitionWidgetsState extends State<FooTransitionWidgets>
+class _FooTransitionWidgetsState extends State<FooTransitionWidgetsTwo>
     with SingleTickerProviderStateMixin {
   late Animation<AlignmentGeometry> _greenAnimation;
   late Animation<AlignmentGeometry> _redAnimation;
