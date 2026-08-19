@@ -38,8 +38,8 @@ class _FooTransitionWidgetsState extends State<FooTransitionWidgetsTwo>
         ).animate(
           CurvedAnimation(
             parent: _greenController,
-            curve: Curves.bounceIn,
-            reverseCurve: Curves.bounceOut,
+            curve: Curves.easeInOut,
+            reverseCurve: Curves.easeInOut,
           ),
         );
     _redAnimation = Tween<AlignmentGeometry>(
@@ -48,13 +48,13 @@ class _FooTransitionWidgetsState extends State<FooTransitionWidgetsTwo>
     ).animate(CurvedAnimation(parent: _redController, curve: Curves.easeInOut));
 
     _redController.addListener(() {
-      log("red animation value =======> ${_redAnimation.value}");
       log("red Controller value =======> ${_redController.value}");
 
-      if (_redAnimation.status == AnimationStatus.completed) {
+      if (_redController.value >= 0.5 && _greenController.value == 0) {
         _greenController.forward();
       }
-      if (_redAnimation.status == AnimationStatus.dismissed) {
+
+      if (_redController.value <= 0.5 && _greenController.value == 1) {
         _greenController.reverse();
       }
     });
