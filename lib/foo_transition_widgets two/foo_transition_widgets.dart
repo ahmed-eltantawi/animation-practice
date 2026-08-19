@@ -46,7 +46,6 @@ class _FooTransitionWidgetsState extends State<FooTransitionWidgetsTwo>
       begin: Alignment.centerLeft,
       end: Alignment.centerRight,
     ).animate(CurvedAnimation(parent: _redController, curve: Curves.easeInOut));
-
     _redController.addListener(() {
       log("red Controller value =======> ${_redController.value}");
 
