@@ -8,16 +8,17 @@ class FooTransitionWidgetsTwo extends StatefulWidget {
 }
 
 class _FooTransitionWidgetsState extends State<FooTransitionWidgetsTwo>
-    with SingleTickerProviderStateMixin {
+    with TickerProviderStateMixin {
   late Animation<AlignmentGeometry> _greenAnimation;
   late Animation<AlignmentGeometry> _redAnimation;
-  late AnimationController _controller;
+  late AnimationController _redController;
+  late AnimationController _greenController;
 
   @override
   void initState() {
     super.initState();
 
-    _controller = AnimationController(
+    _redController = AnimationController(
       vsync: this,
       duration: const Duration(seconds: 5),
       reverseDuration: const Duration(seconds: 1),
@@ -29,7 +30,7 @@ class _FooTransitionWidgetsState extends State<FooTransitionWidgetsTwo>
           end: Alignment.bottomCenter,
         ).animate(
           CurvedAnimation(
-            parent: _controller,
+            parent: _greenController,
             curve: Curves.bounceIn,
             reverseCurve: Curves.bounceOut,
           ),
@@ -37,12 +38,12 @@ class _FooTransitionWidgetsState extends State<FooTransitionWidgetsTwo>
     _redAnimation = Tween<AlignmentGeometry>(
       begin: Alignment.centerLeft,
       end: Alignment.centerRight,
-    ).animate(CurvedAnimation(parent: _controller, curve: Curves.easeInOut));
+    ).animate(CurvedAnimation(parent: _redController, curve: Curves.easeInOut));
   }
 
   @override
   void dispose() {
-    _controller.dispose();
+    _redController.dispose();
     super.dispose();
   }
 
@@ -79,38 +80,38 @@ class _FooTransitionWidgetsState extends State<FooTransitionWidgetsTwo>
       children: [
         ElevatedButton(
           onPressed: () {
-            _controller.forward();
+            _redController.forward();
           },
           child: const Text("Forward"),
         ),
         ElevatedButton(
           onPressed: () {
-            _controller.stop();
+            _redController.stop();
           },
           child: const Text("Stop"),
         ),
         ElevatedButton(
           onPressed: () {
-            _controller.reverse();
+            _redController.reverse();
           },
           child: const Text("Reverse"),
         ),
 
         ElevatedButton(
           onPressed: () {
-            _controller.reset();
+            _redController.reset();
           },
           child: const Text("Reset"),
         ),
         ElevatedButton(
           onPressed: () {
-            _controller.repeat();
+            _redController.repeat();
           },
           child: const Text("Repeat without reverse"),
         ),
         ElevatedButton(
           onPressed: () {
-            _controller.repeat(reverse: true);
+            _redController.repeat(reverse: true);
           },
           child: const Text("Repeat with reverse"),
         ),
