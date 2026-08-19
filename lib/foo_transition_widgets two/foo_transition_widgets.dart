@@ -47,8 +47,16 @@ class _FooTransitionWidgetsState extends State<FooTransitionWidgetsTwo>
       end: Alignment.centerRight,
     ).animate(CurvedAnimation(parent: _redController, curve: Curves.easeInOut));
 
-    _redAnimation.addListener(() {
-      log("Statues ========> ${_redAnimation.status}");
+    _redController.addListener(() {
+      log("red animation value =======> ${_redAnimation.value}");
+      log("red Controller value =======> ${_redController.value}");
+
+      if (_redAnimation.status == AnimationStatus.completed) {
+        _greenController.forward();
+      }
+      if (_redAnimation.status == AnimationStatus.dismissed) {
+        _greenController.reverse();
+      }
     });
   }
 
@@ -96,36 +104,12 @@ class _FooTransitionWidgetsState extends State<FooTransitionWidgetsTwo>
           },
           child: const Text("Forward"),
         ),
-        ElevatedButton(
-          onPressed: () {
-            _redController.stop();
-          },
-          child: const Text("Stop"),
-        ),
+
         ElevatedButton(
           onPressed: () {
             _redController.reverse();
           },
           child: const Text("Reverse"),
-        ),
-
-        ElevatedButton(
-          onPressed: () {
-            _redController.reset();
-          },
-          child: const Text("Reset"),
-        ),
-        ElevatedButton(
-          onPressed: () {
-            _redController.repeat();
-          },
-          child: const Text("Repeat without reverse"),
-        ),
-        ElevatedButton(
-          onPressed: () {
-            _redController.repeat(reverse: true);
-          },
-          child: const Text("Repeat with reverse"),
         ),
       ],
     );
