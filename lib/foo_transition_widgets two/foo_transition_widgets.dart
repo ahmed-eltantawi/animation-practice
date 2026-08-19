@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 
 class FooTransitionWidgetsTwo extends StatefulWidget {
@@ -23,6 +25,11 @@ class _FooTransitionWidgetsState extends State<FooTransitionWidgetsTwo>
       duration: const Duration(seconds: 5),
       reverseDuration: const Duration(seconds: 1),
     );
+    _greenController = AnimationController(
+      vsync: this,
+      duration: const Duration(seconds: 5),
+      reverseDuration: const Duration(seconds: 1),
+    );
 
     _greenAnimation =
         Tween<AlignmentGeometry>(
@@ -39,11 +46,16 @@ class _FooTransitionWidgetsState extends State<FooTransitionWidgetsTwo>
       begin: Alignment.centerLeft,
       end: Alignment.centerRight,
     ).animate(CurvedAnimation(parent: _redController, curve: Curves.easeInOut));
+
+    _redAnimation.addListener(() {
+      log("Statues ========> ${_redAnimation.status}");
+    });
   }
 
   @override
   void dispose() {
     _redController.dispose();
+    _greenController.dispose();
     super.dispose();
   }
 
